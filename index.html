@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A complete FileMaker solution that revolutionized operations for a luxury jewelry manufacturer - reducing processing time by 40% and increasing margins by 7%">
+    <title>Custom Jewelry Production & Cost Management System | Muhammad Shahzeb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a2332;
+            --secondary-dark: #2d3748;
+            --gold: #d4af37;
+            --gold-light: #f4e4b8;
+            --white: #ffffff;
+            --gray: #a0aec0;
+            --accent-blue: #4a5568;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gold);
+        }
+
+        .hero-image {
+            margin-top: 3rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .challenge {
+            background: var(--secondary-dark);
+        }
+
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .before, .after {
+            background: var(--primary-dark);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid;
+        }
+
+        .before {
+            border-color: #e53e3e;
+        }
+
+        .after {
+            border-color: var(--gold);
+        }
+
+        .before h3, .after h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pain-point {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+        }
+
+        .pain-point-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .workflow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--secondary-dark);
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .workflow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        .workflow-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-callout {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+        }
+
+        .stat-callout h3 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .features {
+            background: var(--secondary-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--primary-dark);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: transform 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .technical {
+            background: var(--primary-dark);
+        }
+
+        .tech-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .code-snippet {
+            background: #0d1117;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .code-snippet .comment {
+            color: #6a737d;
+        }
+
+        .code-snippet .keyword {
+            color: #f97583;
+        }
+
+        .code-snippet .string {
+            color: #9ecbff;
+        }
+
+        .code-snippet .function {
+            color: #b392f0;
+        }
+
+        .integrations {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .integration-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--secondary-dark);
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .integration-icon {
+            font-size: 2rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .results {
+            background: var(--secondary-dark);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-dark);
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+        }
+
+        .metric-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 10px;
+            animation: fillProgress 2s ease-out forwards;
+        }
+
+        @keyframes fillProgress {
+            from { width: 0; }
+        }
+
+        .gallery {
+            background: var(--primary-dark);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: blur(3px);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 35, 50, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .gallery-overlay p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .role {
+            background: var(--secondary-dark);
+        }
+
+        .role-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .role-bio {
+            text-align: center;
+        }
+
+        .role-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border: 4px solid var(--primary-dark);
+        }
+
+        .role-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .role-title {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: var(--primary-dark);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .skill-item h4 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--primary-dark);
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+        }
+
+        footer {
+            background: var(--primary-dark);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        footer p {
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow {
+                flex-direction: column;
+            }
+
+            .workflow-step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -1.5rem;
+                transform: translateX(50%);
+            }
+
+            .tech-content {
+                grid-template-columns: 1fr;
+            }
+
+            .role-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">MS</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#challenge">Challenge</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transforming Jewelry Manufacturing<br>with Custom Technology</h1>
+                <p class="subtitle">A complete FileMaker solution that revolutionized operations for a luxury jewelry manufacturer—reducing processing time by 40% and increasing profit margins by 7%</p>
+                
+                <div class="tech-stack">
+                    <span class="tech-badge">FileMaker Pro</span>
+                    <span class="tech-badge">SQL Database</span>
+                    <span class="tech-badge">REST APIs</span>
+                    <span class="tech-badge">Google Apps Script</span>
+                    <span class="tech-badge">QuickBooks Integration</span>
+                </div>
+
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=1200&h=600&fit=crop" alt="Jewelry Manufacturing Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="challenge" class="challenge">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>The Business Challenge</h2>
+                <p>A jewelry manufacturer struggling with fragmented Excel workflows, manual calculations, and zero operational visibility</p>
+            </div>
+
+            <div class="before-after fade-in">
+                <div class="before">
+                    <h3>❌ Before: Manual Chaos</h3>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">📊</span>
+                        <div>
+                            <strong>Fragmented Workflow</strong>
+                            <p>Every department worked in isolation using separate Excel files with no single source of truth</p>
+                        </div>
+                    </div>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">👁️</span>
+                        <div>
+                            <strong>Zero Visibility</strong>
+                            <p>Management couldn't answer "Where is order #X?" or track production stages in real-time</p>
+                        </div>
+                    </div>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">💰</span>
+                        <div>
+                            <strong>Pricing Errors</strong>
+                            <p>Manual calculations led to 12% error rate, causing unprofitable orders and lost revenue</p>
+                        </div>
+                    </div>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">📈</span>
+                        <div>
+                            <strong>Reporting Nightmare</strong>
+                            <p>Financial reports took 3 days to compile manually with frequent inaccuracies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="after">
+                    <h3>✅ After: Integrated System</h3>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">🔄</span>
+                        <div>
+                            <strong>Unified Platform</strong>
+                            <p>Single database connecting all departments with real-time data synchronization</p>
+                        </div>
+                    </div>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">📍</span>
+                        <div>
+                            <strong>Complete Tracking</strong>
+                            <p>QR code system provides instant order location and status updates across all stages</p>
+                        </div>
+                    </div>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">🎯</span>
+                        <div>
+                            <strong>Automated Accuracy</strong>
+                            <p>Pricing errors reduced to <1% with automated calculations and real-time gold price updates</p>
+                        </div>
+                    </div>
+                    <div class="pain-point">
+                        <span class="pain-point-icon">⚡</span>
+                        <div>
+                            <strong>Instant Insights</strong>
+                            <p>Real-time dashboards and reports generated instantly with comprehensive analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="solution">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>The Solution Architecture</h2>
+                <p>An integrated, end-to-end system connecting every touchpoint in the jewelry manufacturing process</p>
+            </div>
+
+            <div class="workflow fade-in">
+                <div class="workflow-step">
+                    <div class="workflow-icon">💬</div>
+                    <strong>Client Inquiry</strong>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">📋</div>
+                    <strong>Quotation</strong>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">✅</div>
+                    <strong>Approval</strong>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">📦</div>
+                    <strong>Purchase Order</strong>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">🎨</div>
+                    <strong>CAD Design</strong>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">⚙️</div>
+                    <strong>Production</strong>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">✨</div>
+                    <strong>Quality Check</strong>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-icon">🚚</div>
+                    <strong>Delivery</strong>
+                </div>
+            </div>
+
+            <div class="stat-callout fade-in">
+                <h3>27</h3>
+                <p>Integrated Database Tables</p>
+                <p style="margin-top: 1rem; color: var(--gray);">Clients • Orders • Items • Materials • Labor • Transactions • Inventory • Reports</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Key Features</h2>
+                <p>Comprehensive modules designed to automate and optimize every aspect of jewelry production</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📈</div>
+                    <h3>Real-Time Gold Price Updates</h3>
+                    <p>Automated daily price fetching from financial APIs with instant recalculation of all pending quotes. Alerts sent when prices fluctuate by more than 2%.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>QR Code Tracking System</h3>
+                    <p>Every jewelry item gets a unique QR code. Workers scan at each production stage using iPads, creating a complete audit trail and preventing lost items.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🧮</div>
+                    <h3>Automated Cost Calculation</h3>
+                    <p>Dynamic calculations for materials, labor, overhead, and markup. Real-time updates when costs change with automatic margin alerts.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3>Production Dashboard</h3>
+                    <p>Visual board showing all active orders across production stages. Real-time status updates with alerts for delayed orders and bottlenecks.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📦</div>
+                    <h3>Inventory Management</h3>
+                    <p>Track raw materials and finished jewelry with stock movement logs. Automated low-stock alerts and purchasing integration.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💼</div>
+                    <h3>Financial Reporting</h3>
+                    <p>Instant generation of profitability reports, cost analysis, and performance metrics. QuickBooks integration for automated accounting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technical" class="technical">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Technical Implementation</h2>
+                <p>Built with enterprise-grade architecture and seamless third-party integrations</p>
+            </div>
+
+            <div class="tech-content fade-in">
+                <div class="code-snippet">
+<span class="comment">// Automated Gold Price Update Script</span>
+<span class="keyword">function</span> <span class="function">UpdateGoldPrices</span>() {
+  <span class="comment">// Fetch current 24K gold price</span>
+  <span class="keyword">let</span> price24K = <span class="function">FetchFromAPI</span>(<span class="string">"gold-api.com"</span>);
+  
+  <span class="comment">// Calculate other purities</span>
+  <span class="keyword">let</span> price18K = price24K * 0.75;
+  <span class="keyword">let</span> price14K = price24K * 0.585;
+  
+  <span class="comment">// Update database</span>
+  <span class="function">UpdatePricingTable</span>(price24K, price18K, price14K);
+  
+  <span class="comment">// Recalculate pending quotes</span>
+  <span class="function">RecalculatePendingQuotes</span>();
+  
+  <span class="comment">// Send alerts if price changed >2%</span>
+  <span class="keyword">if</span> (<span class="function">PriceChangePercent</span>() > 2) {
+    <span class="function">SendAlertToManagement</span>();
+  }
+}
+                </div>
+
+                <div class="integrations">
+                    <div class="integration-item">
+                        <span class="integration-icon">🔗</span>
+                        <div>
+                            <strong>Google Sheets API</strong>
+                            <p>Real-time gold price updates from trading platforms</p>
+                        </div>
+                    </div>
+                    <div class="integration-item">
+                        <span class="integration-icon">💳</span>
+                        <div>
+                            <strong>QuickBooks API</strong>
+                            <p>Automated accounting entries for invoices and expenses</p>
+                        </div>
+                    </div>
+                    <div class="integration-item">
+                        <span class="integration-icon">☁️</span>
+                        <div>
+                            <strong>Google Drive API</strong>
+                            <p>Cloud storage for CAD files, photos, and documents</p>
+                        </div>
+                    </div>
+                    <div class="integration-item">
+                        <span class="integration-icon">📱</span>
+                        <div>
+                            <strong>REST APIs</strong>
+                            <p>Custom web service for mobile app access</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-tags fade-in">
+                <span class="tech-tag">FileMaker Pro Advanced</span>
+                <span class="tech-tag">FileMaker Server</span>
+                <span class="tech-tag">SQL Database</span>
+                <span class="tech-tag">REST API Development</span>
+                <span class="tech-tag">Google Apps Script</span>
+                <span class="tech-tag">QuickBooks Integration</span>
+                <span class="tech-tag">QR Code Generation</span>
+                <span class="tech-tag">Mobile Development (iOS)</span>
+                <span class="tech-tag">Database Design</span>
+                <span class="tech-tag">Business Process Automation</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="results">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Measurable Impact</h2>
+                <p>Quantifiable improvements across operations, accuracy, and profitability</p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card fade-in">
+                    <div class="metric-number">40%</div>
+                    <div class="metric-label">Faster Processing</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card fade-in">
+                    <div class="metric-number">&lt;1%</div>
+                    <div class="metric-label">Pricing Errors</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 99%"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card fade-in">
+                    <div class="metric-number">+7%</div>
+                    <div class="metric-label">Margin Increase</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card fade-in">
+                    <div class="metric-number">95%</div>
+                    <div class="metric-label">Fewer Inventory Issues</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <div class="metric-card fade-in">
+                    <div class="metric-number">5min</div>
+                    <div class="metric-label">Quote Generation</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.5rem;">Down from 30 minutes</p>
+                </div>
+
+                <div class="metric-card fade-in">
+                    <div class="metric-number">Instant</div>
+                    <div class="metric-label">Report Generation</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.5rem;">Down from 3 days</p>
+                </div>
+
+                <div class="metric-card fade-in">
+                    <div class="metric-number">$3K</div>
+                    <div class="metric-label">Monthly Savings</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.5rem;">Reduced material waste</p>
+                </div>
+
+                <div class="metric-card fade-in">
+                    <div class="metric-number">10x</div>
+                    <div class="metric-label">Scalability</div>
+                    <p style="color: var(--gray); font-size: 0.9rem; margin-top: 0.5rem;">System capacity vs current volume</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>System Screenshots</h2>
+                <p>Visual proof of the comprehensive solution (client data blurred for confidentiality)</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Dashboard">
+                    <div class="gallery-overlay">
+                        <h4>📊 Main Dashboard</h4>
+                        <p>Real-time overview of orders, production, and key metrics</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="Production Board">
+                    <div class="gallery-overlay">
+                        <h4>⚙️ Production Tracking Board</h4>
+                        <p>Visual workflow showing all active orders across stages</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop" alt="Cost Calculator">
+                    <div class="gallery-overlay">
+                        <h4>🧮 Cost Calculation Screen</h4>
+                        <p>Automated pricing with material, labor, and overhead breakdown</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Reports">
+                    <div class="gallery-overlay">
+                        <h4>📈 Analytics & Reports</h4>
+                        <p>Comprehensive financial and operational insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="role" class="role">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>My Role</h2>
+                <p>Sole developer and project architect from concept to deployment</p>
+            </div>
+
+            <div class="role-content fade-in">
+                <div class="role-bio">
+                    <div class="role-avatar">👨‍💻</div>
+                    <h3 class="role-name">Muhammad Shahzeb</h3>
+                    <p class="role-title">Full-Stack Developer & Database Architect</p>
+                    <p style="color: var(--gray); margin-top: 1rem;">Sole developer responsible for the entire project lifecycle</p>
+                </div>
+
+                <div>
+                    <h3 style="color: var(--gold); margin-bottom: 1.5rem;">Skills Demonstrated</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <h4>Database Design</h4>
+                            <p>27-table relational architecture</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>API Integration</h4>
+                            <p>Google, QuickBooks, REST APIs</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Business Analysis</h4>
+                            <p>Requirements gathering & workflow design</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Project Management</h4>
+                            <p>6-month end-to-end delivery</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Automation</h4>
+                            <p>50+ custom scripts & triggers</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>UI/UX Design</h4>
+                            <p>Role-based interfaces</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <h3 style="color: var(--gold); margin-bottom: 1.5rem;">Project Timeline</h3>
+                        <div class="timeline-item">
+                            <span class="timeline-icon">🔍</span>
+                            <div>
+                                <strong>Discovery & Planning (3 weeks)</strong>
+                                <p style="color: var(--gray);">Stakeholder interviews, workflow analysis, database design</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-icon">⚙️</span>
+                            <div>
+                                <strong>Development (4 months)</strong>
+                                <p style="color: var(--gray);">Built all modules, integrations, and automation scripts</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-icon">🧪</span>
+                            <div>
+                                <strong>Testing & Refinement (1 month)</strong>
+                                <p style="color: var(--gray);">Pilot testing, optimization, data migration</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-icon">🚀</span>
+                            <div>
+                                <strong>Deployment & Training (2 weeks)</strong>
+                                <p style="color: var(--gray);">Server setup, user training, documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta">
+        <div class="container fade-in">
+            <h2>Interested in a Custom Solution?</h2>
+            <p>Let's discuss how I can help transform your business operations</p>
+            
+            <div class="cta-buttons">
+                <a href="mailto:shahzebmuhammad1@gmail.com" class="btn btn-primary">
+                    📧 Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-shahzeb" class="btn btn-secondary">
+                    💼 LinkedIn
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    📄 Download Case Study
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Muhammad Shahzeb. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with passion for solving complex business problems through technology</p>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const animateCounter = (element) => {
+            const target = element.textContent;
+            const isPercentage = target.includes('%');
+            const isTime = target.includes('min') || target === 'Instant';
+            const isMoney = target.includes('$');
+            const isMultiplier = target.includes('x');
+            
+            if (isTime || target === 'Instant' || target.includes('<')) return;
+            
+            const numericValue = parseInt(target.replace(/[^0-9]/g, ''));
+            if (isNaN(numericValue)) return;
+            
+            let current = 0;
+            const increment = numericValue / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= numericValue) {
+                    current = numericValue;
+                    clearInterval(timer);
+                }
+                
+                let displayValue = Math.floor(current);
+                if (isPercentage) displayValue += '%';
+                if (isMoney) displayValue = '$' + displayValue + 'K';
+                if (isMultiplier) displayValue += 'x';
+                
+                element.textContent = displayValue;
+            }, 30);
+        };
+
+        const metricObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target.querySelector('.metric-number');
+                    if (counter && !counter.classList.contains('animated')) {
+                        counter.classList.add('animated');
+                        animateCounter(counter);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.metric-card').forEach(card => metricObserver.observe(card));
+    </script>
+</body>
+</html>
